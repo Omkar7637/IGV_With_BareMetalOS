@@ -59,7 +59,7 @@ MX_USART2_UART_Init();
 ```
 Initializes HAL library, system clock, GPIO, timers, and UART.
 
-Task Creation:
+##### Task Creation:
 ```c
 BMOS_CreateTask(PulseLEDTask, "PulseLED", 128, NULL, 5);
 BMOS_CreateTask(DCMotorTask, "DCMotor", 128, NULL, 5);
@@ -68,21 +68,23 @@ BMOS_CreateTask(Servo1Task, "Servo1", 128, NULL, 5);
 ```
 Creates four tasks with specified priorities and stack sizes.
 
-Scheduler Start:
+##### Scheduler Start:
 ```c
 BMOS_StartScheduler();
 ```
 Starts the Bare Metal OS scheduler.
 
-Infinite Loop:
+##### Infinite Loop:
 ```c
 Copy code
 while (1) {
     /* Your main loop code here */
 }
 ```
+
 Task Functions
-PulseLEDTask:
+
+#####PulseLEDTask:
 ```c
 
 void PulseLEDTask(void) {
@@ -94,9 +96,10 @@ void PulseLEDTask(void) {
     }
 }
 ```
+
 Blinks an LED on GPIOD Pin 15 with a 1-second interval.
 
-Servo1Task:
+##### Servo1Task:
 ```c
 
 void Servo1Task(void) {
@@ -114,9 +117,10 @@ void Servo1Task(void) {
     }
 }
 ```
+
 Controls servo positions and blinks an LED based on servo operations.
 
-LED4Task:
+##### LED4Task:
 ```c
 void LED4Task(void) {
     while (1) {
@@ -129,9 +133,10 @@ void LED4Task(void) {
     }
 }
 ```
+
 Updates commands for DC motors and servos based on UART input.
 
-DCMotorTask:
+##### DCMotorTask:
 ```c
 void DCMotorTask(void) {
     while (1) {
@@ -145,14 +150,14 @@ void DCMotorTask(void) {
 Controls DC motors based on received commands.
 
 Initialization Functions
-- **MX_TIM3_Init: Configures Timer 3 for PWM signal generation, used for controlling servos.
-- **MX_USART2_UART_Init: Sets up UART for communication.
-- **MX_GPIO_Init: Initializes GPIO pins used for various controls.
+- **MX_TIM3_Init:** Configures Timer 3 for PWM signal generation, used for controlling servos.
+- **MX_USART2_UART_Init:** Sets up UART for communication.
+- **MX_GPIO_Init:** Initializes GPIO pins used for various controls.
   
 Error Handling and Callbacks
-- **HAL_UART_RxCpltCallback: Handles UART receive complete interrupt, processes commands.
-- **HAL_TIM_PeriodElapsedCallback: Increments a global tick counter on Timer 2 interrupts.
-- **Error_Handler: Handles errors by halting execution.
+- **HAL_UART_RxCpltCallback:** Handles UART receive complete interrupt, processes commands.
+- **HAL_TIM_PeriodElapsedCallback:** Increments a global tick counter on Timer 2 interrupts.
+- **Error_Handler:** Handles errors by halting execution.
   
 Summary
 The code uses the Bare Metal OS to manage tasks in the STM32 microcontroller. It sets up GPIO, timers, and UART, then creates and schedules tasks for LED pulsing, servo control, DC motor control, and command processing. The system operates efficiently with task switching managed by the Bare Metal OS, ensuring real-time performance for the Intelligent Guided Vehicle (IGV).
