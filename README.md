@@ -145,13 +145,15 @@ void DCMotorTask(void) {
 Controls DC motors based on received commands.
 
 Initialization Functions
-MX_TIM3_Init: Configures Timer 3 for PWM signal generation, used for controlling servos.
-MX_USART2_UART_Init: Sets up UART for communication.
-MX_GPIO_Init: Initializes GPIO pins used for various controls.
+- **MX_TIM3_Init: Configures Timer 3 for PWM signal generation, used for controlling servos.
+- **MX_USART2_UART_Init: Sets up UART for communication.
+- **MX_GPIO_Init: Initializes GPIO pins used for various controls.
+  
 Error Handling and Callbacks
-HAL_UART_RxCpltCallback: Handles UART receive complete interrupt, processes commands.
-HAL_TIM_PeriodElapsedCallback: Increments a global tick counter on Timer 2 interrupts.
-Error_Handler: Handles errors by halting execution.
+- **HAL_UART_RxCpltCallback: Handles UART receive complete interrupt, processes commands.
+- **HAL_TIM_PeriodElapsedCallback: Increments a global tick counter on Timer 2 interrupts.
+- **Error_Handler: Handles errors by halting execution.
+  
 Summary
 The code uses the Bare Metal OS to manage tasks in the STM32 microcontroller. It sets up GPIO, timers, and UART, then creates and schedules tasks for LED pulsing, servo control, DC motor control, and command processing. The system operates efficiently with task switching managed by the Bare Metal OS, ensuring real-time performance for the Intelligent Guided Vehicle (IGV).
 
