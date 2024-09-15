@@ -20,7 +20,7 @@ The Intelligent Guided Vehicle (IGV) project involves developing an autonomous v
 - **Embedded Software:**
   - STM32CubeIDE
   - Arduino IDE
-  - BareMetal OS
+  - [BareMetal OS ](https://github.com/Omkar7637/STM32-BareMetalOS-Crafting-from-Scratch/blob/main/README.md).
   - C Programming
 - **Programming Languages:**
   - C
